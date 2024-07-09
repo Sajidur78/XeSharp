@@ -74,8 +74,9 @@ namespace XeSharp.Net.Sockets
 
             Client = new TcpClient();
 
-            // Don't resolve hostname if an ip was provided
-            // If we try to resolve IP as a host then it can act weird on ipv6 enabled devices
+            /* Don't resolve hostname if an IP was provided.
+               If we try to resolve IP as a host, then it can
+               act weird on IPv6-enabled devices. */
             if (IPAddress.TryParse(in_hostName, out var ip))
             {
                 Client.Connect(ip, XbdmPort);
